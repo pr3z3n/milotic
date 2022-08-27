@@ -1,0 +1,2 @@
+# milotic
+Color palette
