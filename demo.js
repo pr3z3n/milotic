@@ -66,8 +66,7 @@
       var width = Math.max(Math.round(500 / colors.length), 5);
       var cell = document.createElement('td');
       row.firstChild.innerHTML = colors.map(function(color) {
-        return '<span style="background: #' + color + '; width: ' +
-          width + 'px"></span>';
+        return '<span style="background: #' + color + '; width: ' + width + 'px"></span>';
       }).join('');
     } else {
       row.firstChild.innerHTML = 'Too many colours requested.';
@@ -86,11 +85,8 @@
   }
 
   function rgbToHex(rgb) {
-    var match =
-      rgb && rgb.match(/^rgba?\((\d+),\s*(\d+),\s*(\d+)(,\s*\d+\.*\d+)?\)$/);
-    return match
-      ? ('#' + hex(match[1]) + hex(match[2]) + hex(match[3])).toUpperCase()
-      : '';
+    var match = rgb && rgb.match(/^rgba?\((\d+),\s*(\d+),\s*(\d+)(,\s*\d+\.*\d+)?\)$/);
+    return match ? ('#' + hex(match[1]) + hex(match[2]) + hex(match[3])).toUpperCase() : '';
   }
 
   var mouseMoveHandler = function(e) {
