@@ -1,27 +1,7 @@
-/** @license
- *
- *     Colour Palette Generator demo script.
- *     Copyright (c) 2014 Google Inc.
- *
- *     Licensed under the Apache License, Version 2.0 (the "License"); you may
- *     not use this file except in compliance with the License.  You may
- *     obtain a copy of the License at
- *
- *         http://www.apache.org/licenses/LICENSE-2.0
- *
- *     Unless required by applicable law or agreed to in writing, software
- *     distributed under the License is distributed on an "AS IS" BASIS,
- *     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
- *     implied.  See the License for the specific language governing
- *     permissions and limitations under the License.
- */
-
 'use strict';
 
 (function() {
   var byId = document.getElementById.bind(document);
-
-
   var transformColors = function(colors, callback) {
     if (!callback) {
       return colors;
@@ -37,28 +17,6 @@
   };
 
   var blindnessFilters = {
-    green: {
-      name: 'Green-blindness (6% of men, 0.4% of women)',
-      func: function(r, g, b) {
-        r = Math.pow(r, 2.2);
-        g = Math.pow(g, 2.2);
-        b = Math.pow(b, 2.2);
-        var R = Math.pow(0.02138 + 0.677 * g + 0.2802 * r, 1 / 2.2);
-        var B = Math.pow(0.02138 * (1 + g - r) + 0.9572 * b, 1 / 2.2);
-        return [R, R, B];
-      }
-    },
-    red: {
-      name: 'Red-blindness (2.5% of men)',
-      func: function(r, g, b) {
-        r = Math.pow(r, 2.2);
-        g = Math.pow(g, 2.2);
-        b = Math.pow(b, 2.2);
-        var R = Math.pow(0.003974 + 0.8806 * g + 0.1115 * r, 1 / 2.2);
-        var B = Math.pow(0.003974 * (1 - g + r) + 0.9921 * b, 1 / 2.2);
-        return [R, R, B];
-      }
-    },
     gray: {
       name: 'Grayscale',
       func: function(r, g, b) {
