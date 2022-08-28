@@ -17,6 +17,28 @@
   };
 
   var blindnessFilters = {
+    green: {
+      name: 'Green-blindness (6% of men, 0.4% of women)',
+      func: function(r, g, b) {
+        r = Math.pow(r, 2.2);
+        g = Math.pow(g, 2.2);
+        b = Math.pow(b, 2.2);
+        var R = Math.pow(0.02138 + 0.677 * g + 0.2802 * r, 1 / 2.2);
+        var B = Math.pow(0.02138 * (1 + g - r) + 0.9572 * b, 1 / 2.2);
+        return [R, R, B];
+      }
+    },
+    red: {
+      name: 'Red-blindness (2.5% of men)',
+      func: function(r, g, b) {
+        r = Math.pow(r, 2.2);
+        g = Math.pow(g, 2.2);
+        b = Math.pow(b, 2.2);
+        var R = Math.pow(0.003974 + 0.8806 * g + 0.1115 * r, 1 / 2.2);
+        var B = Math.pow(0.003974 * (1 - g + r) + 0.9921 * b, 1 / 2.2);
+        return [R, R, B];
+      }
+    },
     gray: {
       name: 'Grayscale',
       func: function(r, g, b) {
@@ -154,35 +176,12 @@
       tbody.appendChild(createColorRow(colors, title || name));
     };
 
-    addHeading('Miscellaneous');
-    add('Big qualitative palette', 'mpn65');
+    /** start here */
+    addHeading('Milotic palettes');
+    add('Milotic base colours', 'milotic-roche');
+    add('Milotic all colours', 'milotic-pencil');
 
-    addHeading("Paul Tol's palettes");
-    add("Tol's qualitative palette (cbf)", 'tol');
-    add("Tol's Diverging palette (cbf)", 'tol-dv');
-    add("Tol's Sequential palette (cbf)", 'tol-sq');
-    add("Tol's Rainbow palette (cbf)", 'tol-rainbow');
-
-    ['sequential', 'diverging', 'qualitative'].forEach(function(type) {
-      addHeading('ColorBrewer ' + type + ' palettes');
-      palette.listSchemes('cb-' + type).forEach(function(scheme) {
-        var title = scheme.scheme_name;
-        if (scheme.cbf_max >= scheme.max) {
-          title += ' (cbf)';
-        } else if (scheme.cbf_max > 1) {
-          title += ' (cbf if no more than ' + scheme.cbf_max + ' colours)';
-        }
-        add(title, scheme);
-      });
-    });
-
-    addHeading('HSV rainbows');
-    add('HSV Rainbow (s=1, v=1)', 'rainbow');
-    add('HSV Rainbow (s=.5, v=1)', 'rainbow', 0.5);
-    add('HSV Rainbow (s=1, v=.5)', 'rainbow', 1, 0.5);
-    add('HSV Rainbow (s=.5, v=.5)', 'rainbow', 0.5, 0.5);
-
-    addHeading('RGB gradients');
+    addHeading('Make your own RGB gradients');
     add('Red', function(x) { return palette.rgbColor(x, 0, 0); });
     add('Green', function(x) { return palette.rgbColor(0, x, 0); });
     add('Blue', function(x) { return palette.rgbColor(0, 0, x); });
@@ -191,9 +190,6 @@
     add('Cyan', function(x) { return palette.rgbColor(0, x, x); });
     add('Grayscale', function(x) { return palette.rgbColor(x, x, x); });
 
-    addHeading('Solarized palettes');
-    add('Solarized base colours', 'sol-base');
-    add('Solarized accent colours', 'sol-accent');
   };
 
   var el = document.getElementsByTagName('form')[0];

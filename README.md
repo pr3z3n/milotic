@@ -5,17 +5,10 @@
 >                    - Paul J. Meyer
 
 Milotic is built to illustrate color palette.
+Please see <a href=https://github.com/google/palette.js>google/palette.js</a> for details.
 
-## Compiling and Testing
+## Milotic Palettes
 
-Not Needed
-
-## Using the API
-
-Some of the included palettes have a limited number of colours, but others use a colour generation functions and can potentially create a whole spectrum of colours.
-
-The basic two concepts in palette.js library are schemes and palettes.
-
-A *palette* is a sequence of colours and it is represented by an array of colours encoded as “RRGGBB” strings.  Palette has a fixed size or number of colours in it.
-
-A *scheme* is a set of colour palettes and it is represented by a function with some additional properties and methods (i.e. it can be used as an object).  In simplest cases, scheme will be used to generate a palette of desired size.
+The milotic palettes are of your interest.
+- `milotic-pencil` has all 140 colors
+- `milotic-roche` has 6+2+2+1+1 accent1 - accent1-6, dark1-2, light1-2, hyperlink, followed
