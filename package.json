@@ -1,0 +1,11 @@
+{
+  "name": "milotic",
+  "version": "0.0.1",
+  "description": "Script for generating colour palettes for use with pptx.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pr3z3n/milotic.git"
+  },
+  "author": "S Roychowdhury < shreos@prezent.ai >",
+  "license": "PROPRIETARY"
+}
