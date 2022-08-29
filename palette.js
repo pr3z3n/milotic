@@ -1498,9 +1498,10 @@ palette.SchemeType;
 
 /* milotic palette start here. ************************************************/
 
+
 /* The ‘milotic’ palette is designed for prezent systems.
 /* ‘milotic-pencil’ has all 140 colors
-/* ‘milotic-roche’ has 6+2+2+1+1 accent1 - accent1-6, dark1-2, light1-2, hyperlink, followed
+/* ‘milotic-msdef’ has 6+2+2 accent1-6, dark1-2, light1-2
 */
 
 (function() {
@@ -1523,10 +1524,10 @@ palette.SchemeType;
   scheme.shrinkByTakingHead(true);
   palette.register(scheme);
 
-  palette.register(palette.Scheme.fromPalettes('milotic-roche', 'sequential', [
-    [ '4472c4', 'ed7d31', 'a5a5a5', 'ffc000', '5b9bd5', '70ad47',
-    '000000', '44546a', 'ffffff', 'e7e6e6', '954f72', '0563c1' ]
-  ], 1, 12));
+  palette.register(palette.Scheme.fromPalettes('milotic-msdef', 'sequential', [
+    [ '4472c4', 'ed7d31', 'a5a5a5', 'ffc000', '5b9bd5', '70ad47', '000000', '44546a', 'ffffff', 'e7e6e6' ]
+  ], 1, 10));
+
 
 })();
 

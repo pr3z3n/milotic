@@ -176,19 +176,32 @@
       tbody.appendChild(createColorRow(colors, title || name));
     };
 
+    var addMilotic = function(title, rgbc) {
+      var colors;
+      const p = ( rgbc.length === 8) ? 2 : 0;
+      const r = parseInt(rgbc.slice(p, p+2), 16);
+      const g = parseInt(rgbc.slice(p+2, p+4), 16);
+      const b = parseInt(rgbc.slice(p+4, p+6), 16);
+
+      var fx = function(x) {
+        return palette.rgbColor(x*r/256, x*g/256, x*b/256);
+      };
+      colors = palette.generate(fx, num);
+      if (colors) {
+        colors = transformColors(colors, transform);
+      }
+      tbody.appendChild(createColorRow(colors, title));
+    };
+
     /** start here */
-    addHeading('Milotic palettes');
-    add('Milotic base colours', 'milotic-roche');
+
+    addHeading('Milotic Default palettes');
+    add('Milotic base colours', 'milotic-msdef');
     add('Milotic all colours', 'milotic-pencil');
 
-    addHeading('Make your own RGB gradients');
-    add('Red', function(x) { return palette.rgbColor(x, 0, 0); });
-    add('Green', function(x) { return palette.rgbColor(0, x, 0); });
-    add('Blue', function(x) { return palette.rgbColor(0, 0, x); });
-    add('Yellow', function(x) { return palette.rgbColor(x, x, 0); });
-    add('Magenta', function(x) { return palette.rgbColor(x, 0, x); });
-    add('Cyan', function(x) { return palette.rgbColor(0, x, x); });
-    add('Grayscale', function(x) { return palette.rgbColor(x, x, x); });
+    addHeading('Make your own gradients');
+    addMilotic('Grayscale', 'ffffff' );
+    addMilotic('Red', 'ff0000' );
 
   };
 

@@ -11,4 +11,4 @@ Please see <a href=https://github.com/google/palette.js>google/palette.js</a> fo
 
 The milotic palettes are of your interest.
 - `milotic-pencil` has all 140 colors
-- `milotic-roche` has 6+2+2+1+1 accent1-6, dark1-2, light1-2, hyperlink, followed
+- `milotic-msdef` has 6+2+2 accent1-6, dark1-2, light1-2
