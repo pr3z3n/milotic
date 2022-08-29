@@ -1524,7 +1524,7 @@ palette.SchemeType;
   scheme.shrinkByTakingHead(true);
   palette.register(scheme);
 
-  palette.register(palette.Scheme.fromPalettes('milotic-msdef', 'sequential', [
+  palette.register(palette.Scheme.fromPalettes('milotic-msdef', 'qualitative', [
     [ '4472c4', 'ed7d31', 'a5a5a5', 'ffc000', '5b9bd5', '70ad47', '000000', '44546a', 'ffffff', 'e7e6e6' ]
   ], 1, 10));
 

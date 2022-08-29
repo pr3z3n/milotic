@@ -7,5 +7,7 @@
     "url": "https://github.com/pr3z3n/milotic.git"
   },
   "author": "S Roychowdhury < shreos@prezent.ai >",
-  "license": "PROPRIETARY"
+  "license": "PROPRIETARY",
+  "dependencies": {
+  }
 }
