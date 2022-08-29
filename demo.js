@@ -184,7 +184,8 @@
       const b = parseInt(rgbc.slice(p+4, p+6), 16);
 
       var fx = function(x) {
-        return palette.rgbColor(x*r/256, x*g/256, x*b/256);
+        // return palette.rgbColor(x*r/256, x*g/256, x*b/256);
+        return palette.rgbColor(x*r/128, x*g/128, x*b/128);
       };
       colors = palette.generate(fx, num);
       if (colors) {
