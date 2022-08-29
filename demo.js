@@ -203,6 +203,19 @@
     addMilotic('Grayscale', 'ffffff' );
     addMilotic('Red', 'ff0000' );
 
+    addMilotic('accent1', 'ff4472c4' );
+    addMilotic('accent2', 'ffed7d31' );
+    addMilotic('accent3', 'ffa5a5a5' );
+    addMilotic('accent4', 'ffffc000' );
+    addMilotic('accent5', 'ff5b9bd5' );
+    addMilotic('accent6', 'ff70ad47' );
+    addMilotic('dark1', 'ff000000' );
+    addMilotic('dark2', 'ff44546a' );
+    addMilotic('followed_hyperlink', 'ff954f72' );
+    addMilotic('hyperlink', 'ff0563c1' );
+    addMilotic('light1', 'ffffffff' );
+    addMilotic('light2', 'ffe7e6e6' );
+
   };
 
   var el = document.getElementsByTagName('form')[0];
