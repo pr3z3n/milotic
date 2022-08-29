@@ -176,9 +176,13 @@
       tbody.appendChild(createColorRow(colors, title || name));
     };
 
+    /* The ‘addMiloticRGB’ generates palette for a #rrggbb color as is.
+     * @param {title} color title
+     * @param {rgbc} color format , accepts argb and rgb with or without leading hash
+     */
+
     var addMiloticRGB = function(title, rgbc) {
       var colors;
-      // default is '#rrggbb' , other variants are converted
       var p=1;
       if ( rgbc.length === 6) { p=0; } 
       else if ( rgbc.length === 8) { p=2; }
@@ -198,10 +202,15 @@
       tbody.appendChild(createColorRow(colors, title));
     };
 
-    var addMilotic = function(title, rgbc) {
+    /* The ‘addMilotic’ generates palette for a #rrggbb color considering luminance.
+     * @param {title} color title
+     * @param {rgbc} color format , accepts argb and rgb with or without leading hash
+     * @param {lrc} luminance range control, defaults to 0.05 ( range [0.05,0.95] )
+     */
+
+    var addMilotic = function(title, rgbc, lrc=0.05) {
       var colors;
       var rgbval = rgbc;
-      // default is '#rrggbb' , other variants are converted
       if ( rgbc.length === 6) { rgbval = '#' + rgbc ; } 
       else if ( rgbc.length === 8) { rgbval = '#' + rgbc.slice(2,8) ; } 
       else if ( rgbc.length === 9) { rgbval = '#' + rgbc.slice(3,9) ; } 
@@ -210,7 +219,7 @@
       const dval = '' + chroma.hsl(Math.floor(hh), ss, ll).hex();
 
       var fx = function(x) {
-        var xval = chroma(dval).luminance(0.05 + 0.9 * x).hex();
+        var xval = chroma(dval).luminance(lrc + (1.0-2*lrc)*x).hex();
         console.log('x=', x, dval, xval);
         const r = parseInt(xval.slice(1,3),16);
         const g = parseInt(xval.slice(3,5),16);
