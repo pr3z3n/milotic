@@ -176,6 +176,28 @@
       tbody.appendChild(createColorRow(colors, title || name));
     };
 
+    var addMiloticRGB = function(title, rgbc) {
+      var colors;
+      // default is '#rrggbb' , other variants are converted
+      var p=1;
+      if ( rgbc.length === 6) { p=0; } 
+      else if ( rgbc.length === 8) { p=2; }
+      else if ( rgbc.length === 9) { p=3; }
+
+      const r = parseInt(rgbc.slice(p, p+2), 16);
+      const g = parseInt(rgbc.slice(p+2, p+4), 16);
+      const b = parseInt(rgbc.slice(p+4, p+6), 16);
+
+      var fx = function(x) {
+        return palette.rgbColor(x*r/256, x*g/256, x*b/256);
+      };
+      colors = palette.generate(fx, num);
+      if (colors) {
+        colors = transformColors(colors, transform);
+      }
+      tbody.appendChild(createColorRow(colors, title));
+    };
+
     var addMilotic = function(title, rgbc) {
       var colors;
       var rgbval = rgbc;
@@ -205,20 +227,20 @@
 
     /** start here */
 
-    addHeading('RGB gradients from palette.js');
-    add('Red', function(x) { return palette.rgbColor(x, 0, 0); });
-    add('Green', function(x) { return palette.rgbColor(0, x, 0); });
-    add('Blue', function(x) { return palette.rgbColor(0, 0, x); });
-    add('Yellow', function(x) { return palette.rgbColor(x, x, 0); });
-    add('Magenta', function(x) { return palette.rgbColor(x, 0, x); });
-    add('Cyan', function(x) { return palette.rgbColor(0, x, x); });
-    add('Grayscale', function(x) { return palette.rgbColor(x, x, x); });
-
     addHeading('Milotic Default palettes');
     add('Milotic base colours', 'milotic-msdef');
     add('Milotic all colours', 'milotic-pencil');
 
-    addHeading('Milotic gradients, note the color order');
+    addHeading('addMiloticRGB gradients for palette.js RGB examples');
+    addMiloticRGB('Red','#ffff0000');
+    addMiloticRGB('Green','#ff00ff00');
+    addMiloticRGB('Blue','#ff0000ff');
+    addMiloticRGB('Yellow','#ffffff00');
+    addMiloticRGB('Magenta','#ffff00ff');
+    addMiloticRGB('Cyan','#ff00ffff');
+    addMiloticRGB('Grayscale','#ffffffff');
+
+    addHeading('addMilotic gradients from same palette.js RGB examples');
 
     addMilotic('Red','#ffff0000');
     addMilotic('Green','#ff00ff00');
@@ -226,7 +248,7 @@
     addMilotic('Yellow','#ffffff00');
     addMilotic('Magenta','#ffff00ff');
     addMilotic('Cyan','#ff00ffff');
-    addMilotic('Grayscale','#ff000000');
+    addMilotic('Grayscale','#ffffffff');
 
     addHeading('Milotic gradients with all pencil colors');
 
